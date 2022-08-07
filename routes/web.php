@@ -22,9 +22,11 @@ Route::post('/end',[AttendanceController::class,'end']);
 Route::post('/rest/start',[RestController::class,'start']);
 Route::post('/rest/end',[RestController::class,'end']);
 
+Route::get('/view/{target?}',[AttendanceController::class,'view']);
+
 // Route::get('/', function () {
-//     return view('welcome');
-// });
+//     return view('index');
+// })->middleware(['auth'])->name('welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

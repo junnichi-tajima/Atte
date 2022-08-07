@@ -69,7 +69,8 @@
       <h2>Atte</h2>
       <ul class="menu">
       <li><a href="{{ Route('register') }}">rejister</a></li>
-        <li><a href="{{ Route('login') }}">login</a></li>
+      <li><a href="/view">日付一覧</a></li>
+        <li><a href="/login">login</a></li>
       </ul>
     </div>
     @yield('content')
