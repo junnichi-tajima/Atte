@@ -82,7 +82,7 @@
 
 @section('content')
 <div class="main2">
-  <h2>{{ $rest_start_time }}さんお疲れ様です！</h2>
+  <h2>{{ $name }}さんお疲れ様です！</h2>
   <div class="parent_index">
     <div class="div1">
       <form action="/start" method="post">
@@ -102,18 +102,18 @@
     </div>
     <div class="div3">
       <form action="/rest/start" method="post">
-        @csrf
+         @csrf
         @if ( is_null($rest_start_time))
-      <button type="submit"class="button" href="/">休憩開始</button>
-        @else
-      <button type="submit"class="button" href="/" disabled>休憩開始</button>
-        @endif
+      <button class="button" href="/">休憩開始</button>
+      @else
+      <button class="button" href="/" disabled>休憩開始</button>
+      @endif
       </form>
     </div>
     <div class="div4">
       <form action="/rest/end" method="post">
-        @csrf
-      <button type="submit" class="button" href="/">休憩終了</button>
+         @csrf
+      <button class="button" href="/">休憩終了</button>
       </form>
     </div>
   </div>

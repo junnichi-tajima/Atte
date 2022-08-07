@@ -9,13 +9,13 @@ use Carbon\Carbon;
 
 class RestController extends Controller
 {
-
     public function start() 
     {
         $item = $this->getNowItem();
         //休憩開始時間をアップデート
         attendance::find($item->id)->update(['rest_start_time' => Carbon::now()]);
-        return $item;
+        
+        return redirect()->route('index');
     }
 
     public function end() 
@@ -33,9 +33,10 @@ class RestController extends Controller
             attendance::find($item->id)->update(['rest_time_total' => $item->rest_time_total+$sec]);
         attendance::find($item->id)->update(['rest_start_time' => null]);
             //休憩開始してる
-            return $sec;
+            return redirect()->route('index');
         }
-        return "rest/end";
+        
+        
     }
 
         //今のユーザーIDと時間からデータを取得する
