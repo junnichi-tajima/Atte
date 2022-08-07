@@ -24,7 +24,7 @@ class RestController extends Controller
         if ($item->rest_start_time == null) 
         {
             //休憩開始してない
-            return "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+            $this->start();
         }
         else {
             $now = Carbon::now();
@@ -33,10 +33,8 @@ class RestController extends Controller
             attendance::find($item->id)->update(['rest_time_total' => $item->rest_time_total+$sec]);
         attendance::find($item->id)->update(['rest_start_time' => null]);
             //休憩開始してる
-            return redirect()->route('index');
         }
-        
-        
+        return redirect()->route('index');
     }
 
         //今のユーザーIDと時間からデータを取得する

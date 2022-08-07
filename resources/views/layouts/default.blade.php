@@ -30,7 +30,7 @@
 
   .header {
     grid-area: 1 / 1 / 2 / 2;
-    background-color: red;
+    /* background-color: red; */
     display: flex;
     vertical-align: middle;
     font-size: 24px;
@@ -51,12 +51,12 @@
 
   .main {
     grid-area: 2 / 1 / 3 / 2;
-    background-color: green;
+    /* background-color: green; */
   }
 
   .footer {
     grid-area: 3 / 1 / 4 / 2;
-    background-color: blue;
+    /* background-color: blue; */
     text-align: center;
   }
 

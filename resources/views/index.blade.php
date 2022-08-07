@@ -29,7 +29,7 @@
 
   .div1 {
     grid-area: 1 / 1 / 2 / 2;
-    background-color: lightgray;
+    /* background-color: lightgray; */
     /* padding: 100px; */
     /* margin: 100px; */
     position: relative;
@@ -40,7 +40,7 @@
 
   .div2 {
     grid-area: 1 / 2 / 2 / 3;
-    background-color: lightgray;
+    /* background-color: lightgray; */
     /* padding: 100px; */
     position: relative;
     box-sizing: border-box;
@@ -48,7 +48,7 @@
 
   .div3 {
     grid-area: 2 / 1 / 3 / 2;
-    background-color: lightgray;
+    /* background-color: lightgray; */
     /* padding: 100px; */
     position: relative;
     box-sizing: border-box;
@@ -56,7 +56,7 @@
 
   .div4 {
     grid-area: 2 / 2 / 3 / 3;
-    background-color: lightgray;
+    /* background-color: lightgray; */
     /* padding: 100px; */
     position: relative;
     box-sizing: border-box;
