@@ -12,7 +12,12 @@
 `https://www.apachefriends.org/jp/index.html`
 上記サイトからXAMPをダウンロードし、インストールして下さい
 3.本プロジェクトのクローン  
-`git clone ***********`  
+`git clone https://github.com/junnichi-tajima/Atte.git`  
+4.コマンドラインから必要なモジュールのインストール  
+`cd Atte`  
+`composer install`  
+`php artisan key:generate`  
+上記コマンドを実行し、不足しているモジュールをダウンロードして下さい
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
