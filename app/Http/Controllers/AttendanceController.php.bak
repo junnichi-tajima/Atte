@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\attendance;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
+class AttendanceController extends Controller
+{
+    public function index()
+    {
+        $name = Auth::user()->name;
+        $start_time = null;
+        $rest_time = null;
+        $uid = Auth::user()->id;
+        $dt = Carbon::now()->format('ymd');
+        $item = attendance::where('users_id',$uid)->where('date',$dt)->first();
+        if($item != null){
+            $name = $item->start_time;//Carbon::now();//Auth::user()->name;
+            $start_time = $item->start_time;
+            $rest_time = $item->rest_start_time;
+        }
+        // $start_time = null;
+        return View('index',compact('name','start_time', 'rest_time'));
+    }
+
+    public function start()
+    {
+        $uid = Auth::user()->id;
+        $dt = Carbon::now()->format('ymd');
+        $cnt = attendance::where('users_id',$uid)->where('date',$dt)->count();
+        $item = $cnt;
+        if($cnt==0){
+            $item = attendance::create([
+                'users_id' => Auth::user()->id,
+                'date' => Carbon::now()->format('ymd'),
+                'start_time' => Carbon::now(),
+                'rest_time_total' => 0,
+            ]);
+        }
+        return $item;
+    }
+
+    public function end()
+    {
+        $today = Carbon::now()->format('ymd');
+        $item = attendance::where('users_id', 1)->where('date',$today)
+        ->update(['end_time' => Carbon::now()]);
+        return $item;
+    }
+
+    public function test($aaaa)
+    {
+        return "0000" . $aaaa . "11111";
+    }
+}

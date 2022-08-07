@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\attendance;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
+class RestController extends Controller
+{
+    public function start() 
+    {
+        $item = $this->getNowItem();
+        //休憩開始時間をアップデート
+        attendance::find($item->id)->update(['rest_start_time' => Carbon::now()]);
+        return $item->rest_start_time;
+    }
+
+    public function end() 
+    {
+        $item = $this->getNowItem();
+        if ($item->rest_start_time == null) 
+        {
+            //休憩開始してない
+            return "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+        }
+        else {
+            $now = Carbon::now();
+            $sec = $now->diffInMinutes($item->rest_start_time);
+
+            attendance::find($item->id)->update(['rest_time_total' => $item->rest_time_total+$sec]);
+        attendance::find($item->id)->update(['rest_start_time' => null]);
+            //休憩開始してる
+            return $sec;
+        }
+        return "rest/end";
+    }
+
+        //今のユーザーIDと時間からデータを取得する
+    private function getNowItem()
+    {
+        $uid = Auth::user()->id;
+        $dt = Carbon::now()->format('ymd');
+        
+        $item = attendance::where('users_id',$uid)->where('date',$dt)->first();
+
+        return $item;
+    }
+}
