@@ -4,7 +4,7 @@
 <style>
 
   .login_container {
-    width: 50%;
+    width: 80%;
     height: 50%;
     top: 50%;
     left: 50%;
@@ -14,12 +14,13 @@
     text-align: center;
     display: flex;
     flex-flow: column;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 100px;
+    padding-right: 100px;
     box-sizing: border-box;
   }
 
   input {
+    width: 100%;
     font-size: 24px;
     margin-bottom: 20px;
   }

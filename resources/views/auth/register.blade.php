@@ -10,7 +10,7 @@
   .login_container {
     width: 50%;
     height: 60%;
-    background-color: aqua;
+    /* background-color: aqua; */
     left: 50%;
     top: 50%;
     position: absolute;
@@ -34,7 +34,7 @@
   }
 
   .submit_button {
-    background-color: blue;
+    /* background-color: blue; */
     color: white;
     border-radius: 10px;
     font-size: 24px;
